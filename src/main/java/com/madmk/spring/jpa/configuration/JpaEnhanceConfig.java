@@ -14,7 +14,7 @@ import javax.persistence.EntityManager;
 
 /**
  * @author madmk
- * @date 2019/6/13 9:52
+ * @date 2019/12/22 9:52
  * @description:
  */
 @ConditionalOnClass({SimpleJpaRepository.class, EnableJpaRepositories.class})

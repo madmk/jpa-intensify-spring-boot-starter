@@ -15,11 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
-import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * @author Madmk
@@ -59,10 +57,12 @@ public class LogicRepositoryContent<T,ID> extends SimpleJpaRepository<T,ID> impl
 	public OperationSuggest<T,Object> queryWhereEnhance(Specification<T> spec, LogicContent... logicContents){
 		for(AbstractLogicIntensifyProcessor abstractLogicIntensifyProcessor:logicIntensifyProcessors){
 			OperationSuggest<T,Object> suggest=abstractLogicIntensifyProcessor.queryEnhance(spec,logicContents);
-			if(!suggest.isGoOn()){
-				return suggest;
+			if(suggest!=null){
+				if(!suggest.isGoOn()){
+					return suggest;
+				}
+				spec=suggest.getWhere();
 			}
-			spec=suggest.getWhere();
 		}
 		return new OperationSuggest(spec);
 	}
@@ -100,10 +100,12 @@ public class LogicRepositoryContent<T,ID> extends SimpleJpaRepository<T,ID> impl
 		//开启删除实体增强
 		for(AbstractLogicIntensifyProcessor abstractLogicIntensifyProcessor:logicIntensifyProcessors){
 			OperationSuggest<T,Integer> suggest=abstractLogicIntensifyProcessor.delEnhance(spec,logicContents);
-			if(!suggest.isGoOn()){
-				return suggest.getR();
+			if(suggest!=null){
+				if(!suggest.isGoOn()){
+					return suggest.getR();
+				}
+				spec=suggest.getWhere();
 			}
-			spec=suggest.getWhere();
 		}
 		CriteriaBuilder builder=em.getCriteriaBuilder();
 		CriteriaDelete<T> criteriaDelete=builder.createCriteriaDelete(entityInformation.getJavaType());

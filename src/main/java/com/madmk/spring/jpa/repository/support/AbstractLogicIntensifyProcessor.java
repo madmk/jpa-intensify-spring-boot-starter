@@ -10,8 +10,9 @@ import java.util.*;
 
 /**
  * @author madmk
- * @date 2019/12/6 15:19
+ * @date 2019/12/22 15:19
  * @description: 实体扩展信息
+ * T 实体类型
  */
 public abstract class AbstractLogicIntensifyProcessor<T> {
 
@@ -122,7 +123,7 @@ public abstract class AbstractLogicIntensifyProcessor<T> {
      * @param <S>
      * @return
      */
-    public abstract <S extends T> S persistEnhance(S entity);
+    public <S extends T> S persistEnhance(S entity){return entity;};
 
     /**
      * 修改时增强
@@ -130,7 +131,7 @@ public abstract class AbstractLogicIntensifyProcessor<T> {
      * @param <S>
      * @return
      */
-    public abstract <S extends T> S mergeEnhance(S entity);
+    public <S extends T> S mergeEnhance(S entity){return entity;};
 
     /**
      * 实体删除增强
@@ -138,7 +139,7 @@ public abstract class AbstractLogicIntensifyProcessor<T> {
      * @param logicContents
      * @return
      */
-    public abstract OperationSuggest<T,Integer> delEnhance(Specification<T> spec, LogicContent... logicContents);
+    public OperationSuggest<T,Integer> delEnhance(Specification<T> spec, LogicContent... logicContents){return null;};
 
     /**
      * 实体查询增强
@@ -146,7 +147,7 @@ public abstract class AbstractLogicIntensifyProcessor<T> {
      * @param logicContents
      * @return
      */
-    public abstract OperationSuggest<T,Integer> queryEnhance(Specification<T> spec, LogicContent... logicContents);
+    public OperationSuggest<T,Integer> queryEnhance(Specification<T> spec, LogicContent... logicContents){return null;};
 
 
 

@@ -4,7 +4,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 /**
  * @author madmk
- * @date 2019/12/16 13:42
+ * @date 2019/12/22 13:42
  * @description: 操作建议
  */
 public class OperationSuggest<T,R> {

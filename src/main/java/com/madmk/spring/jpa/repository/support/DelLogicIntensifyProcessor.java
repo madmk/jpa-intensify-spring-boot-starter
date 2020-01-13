@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @author madmk
- * @date 2019/12/16 10:44
+ * @date 2019/12/22 10:44
  * @description: 逻辑删除扩展器
  */
 public class DelLogicIntensifyProcessor<T> extends AbstractLogicIntensifyProcessor<T> {

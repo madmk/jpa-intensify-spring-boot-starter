@@ -18,7 +18,7 @@ import java.io.Serializable;
 
 /**
  * @author madmk
- * @date 2019/12/6 9:35
+ * @date 2019/12/22 9:35
  * @description:
  */
 public class LogicRepositoryFactoryBean<R extends LogicRepository<T,ID>, T,ID>

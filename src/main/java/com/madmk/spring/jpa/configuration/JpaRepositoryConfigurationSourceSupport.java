@@ -14,7 +14,7 @@ import java.util.Locale;
 
 /**
  * @author madmk
- * @date 2019/7/31 10:24
+ * @date 2019/12/22 10:24
  * @description:
  */
 class JpaRepositoryConfigurationSourceSupport extends AbstractRepositoryConfigurationSourceSupport {
