@@ -111,8 +111,8 @@ public class DelLogicIntensifyProcessor<T> extends AbstractLogicIntensifyProcess
         }
         if(this.type==char.class
                 ||this.type==Character.class){
-            exist='e';
-            disappear='d';
+            exist='1';
+            disappear='0';
             return;
         }
         throw new IllegalArgumentException("DelSign.class 只支持 int，byte，short，long 及其包装类");
